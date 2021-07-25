@@ -38,13 +38,23 @@ body {
     color: inherit;
 }
 
-.App {
-    display: grid;
+/* .App { */
+/* display: grid;
     grid-template-columns: 1fr;
     grid-gap: 16px;
-    padding-bottom: 24px;
+    padding-bottom: 24px; */
+/* } */
+
+/* .App > .Loader {
+    margin: 0 auto;
+} */
+
+.NavLink {
+    font-size: 18px;
+    text-decoration: none;
+    color: gray;
 }
 
-.App > .Loader {
-    margin: 0 auto;
+.NavLink--active {
+    color: orangered;
 }
