@@ -1,7 +1,8 @@
 // import { Component } from 'react';
-import { Route, NavLink, Switch } from 'react-router-dom';
+import { Route, NavLink, Switch, Redirect } from 'react-router-dom';
 import HomeView from './views/HomeView';
 import MoviesView from './views/MoviesView';
+import MovieDetailsPage from './views/MovieDetailsView';
 // import axios from 'axios';
 // import Loader from 'react-loader-spinner';
 // import 'react-loader-spinner/dist/loader/css/react-spinner-loader.css';
@@ -36,8 +37,9 @@ const App = () => (
         </ul>
         <Switch>
             <Route exact path="/" component={HomeView} />
+            <Route path="/movies/:movieId" component={MovieDetailsPage} />
             <Route path="/movies" component={MoviesView} />
-            <Route component={HomeView} />
+            <Redirect to="/" />
         </Switch>
     </>
 );
