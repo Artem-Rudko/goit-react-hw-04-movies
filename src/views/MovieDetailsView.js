@@ -40,13 +40,23 @@ class MovieDetailsPage extends Component {
             reviews,
             credits,
         } = this.state;
+
         const BASE_IMG_URL = 'https://image.tmdb.org/t/p/w500';
         console.log('state', this.state);
+        const { location, history } = this.props;
 
         return (
             <>
                 <div>
-                    <button type="button">Go back</button>
+                    <button
+                        type="button"
+                        onClick={() => {
+                            history.push(location.state.from);
+                        }}
+                    >
+                        {' '}
+                        Go back
+                    </button>
                     <img
                         src={`${BASE_IMG_URL}${poster_path}`}
                         alt="#"

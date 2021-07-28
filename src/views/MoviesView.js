@@ -1,10 +1,11 @@
 import { Component } from 'react';
+// import { Link } from 'react-router-dom';
 import axios from 'axios';
 
 class MoviesView extends Component {
     state = {
         query: '',
-        movieList: [],
+        moviesList: [],
     };
 
     formSubmitHandler = e => {
@@ -22,7 +23,7 @@ class MoviesView extends Component {
                 `${BASE_URL}/search/movie?query=${this.state.query}&api_key=${API_KEY}`,
             )
             .then(response => {
-                this.setState({ movieList: response.data.results });
+                this.setState({ moviesList: response.data.results });
             })
             .catch(error => this.setState({ error: error }))
             .finally(this.setState({ query: '' }));
@@ -48,9 +49,11 @@ class MoviesView extends Component {
                         value={this.state.query}
                         onChange={this.queryHandler}
                     ></input>
+                    {/* <Link to={`${this.props.match.url}?query=${this.state.query}`}> */}
                     <button type="submit" className="SearchForm-button">
                         Search
                     </button>
+                    {/* </Link> */}
                 </form>
             </div>
         );
