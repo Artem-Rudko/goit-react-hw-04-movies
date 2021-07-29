@@ -1,10 +1,13 @@
 import Navigation from '../Navigation';
+import styles from './AppBar.module.css';
 
 const AppBar = () => {
     return (
-        <header className="AppBar">
-            <Navigation />
-        </header>
+        <div className={styles.AppBar}>
+            <header>
+                <Navigation />
+            </header>
+        </div>
     );
 };
 

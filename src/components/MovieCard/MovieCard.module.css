@@ -1,0 +1,15 @@
+.movie__card {
+    width: 800px;
+    display: flex;
+    margin-bottom: 12px;
+}
+
+.movie__poster {
+    display: inline;
+    margin-right: 12px;
+}
+
+.movie__info {
+    display: inline;
+    font-size: 18px;
+}

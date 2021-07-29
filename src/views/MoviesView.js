@@ -1,7 +1,12 @@
 import { Component } from 'react';
 // import { Route } from 'react-router-dom';
-import axios from 'axios';
+// import axios from 'axios';
 import MoviesList from '../components/MoviesList';
+import {
+    fetchMoviesFromState,
+    fetchMoviesByQuery,
+} from '../services/movies-api';
+import styles from './MoviesView.module.css';
 
 class MoviesView extends Component {
     state = {
@@ -10,21 +15,15 @@ class MoviesView extends Component {
     };
 
     componentDidMount() {
-        const API_KEY = 'bf0957773382584d05a14ff44449aecb';
-        const BASE_URL = 'https://api.themoviedb.org/3';
-
         if (this.props.location.search) {
-            axios
-                .get(
-                    `${BASE_URL}/search/movie${this.props.location.search}&api_key=${API_KEY}`,
-                )
+            fetchMoviesFromState(this.props.location.search)
                 .then(response => {
                     this.setState({ moviesList: response.data.results });
-                    console.log('state after get', this.state);
-                    localStorage.setItem(
-                        'moviesWasFound',
-                        JSON.stringify(this.state.moviesList),
-                    );
+                    // console.log('state after get', this.state);
+                    // localStorage.setItem(
+                    //     'moviesWasFound',
+                    //     JSON.stringify(this.state.moviesList),
+                    // );
                 })
                 .catch(error => this.setState({ error: error }))
                 .finally(this.setState({ query: '' }));
@@ -33,16 +32,11 @@ class MoviesView extends Component {
 
     formSubmitHandler = e => {
         e.preventDefault();
-        console.log('submitHandler', this.state.query);
+        // console.log('submitHandler', this.state.query);
 
-        const API_KEY = 'bf0957773382584d05a14ff44449aecb';
-        const BASE_URL = 'https://api.themoviedb.org/3';
         this.onQueryChange(this.state.query);
 
-        axios
-            .get(
-                `${BASE_URL}/search/movie?query=${this.state.query}&api_key=${API_KEY}`,
-            )
+        fetchMoviesByQuery(this.state.query)
             .then(response => {
                 this.setState({ moviesList: response.data.results });
                 console.log('state after get', this.state);
@@ -69,10 +63,10 @@ class MoviesView extends Component {
 
     render() {
         return (
-            <div>
+            <div className={styles.container}>
                 <form className="SearchForm" onSubmit={this.formSubmitHandler}>
                     <input
-                        className="SearchForm-input"
+                        className={styles.SearchForm__input}
                         type="text"
                         autoComplete="off"
                         placeholder="input movie's title"

@@ -15,7 +15,7 @@ class Cast extends Component {
     }
 
     render() {
-        const BASE_IMG_URL = 'https://image.tmdb.org/t/p/w500';
+        const BASE_IMG_URL = 'https://image.tmdb.org/t/p/w200';
 
         return (
             <ul>

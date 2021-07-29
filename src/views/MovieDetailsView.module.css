@@ -1,0 +1,28 @@
+.container {
+    margin-left: 24px;
+    margin-right: 24px;
+}
+
+.returnBtn {
+    display: inline-block;
+    margin-bottom: 12px;
+    padding: 6px 24px;
+    border-radius: 4px;
+    border: 1px solid purple;
+    cursor: pointer;
+    /* background-color: orangered; */
+}
+
+.returnBtn:hover,
+.returnBtn:focus {
+    color: #fff;
+    background-color: orangered;
+    outline: none;
+}
+
+.addInfo {
+    border-top: 2px solid orangered;
+    border-bottom: 2px solid orangered;
+    padding: 12px 0;
+    margin-bottom: 12px;
+}

@@ -49,11 +49,11 @@ body {
     margin: 0 auto;
 } */
 
-.NavLink {
+/* .NavLink {
     font-size: 18px;
     text-decoration: none;
     color: gray;
-}
+} */
 
 .NavLink--active {
     color: orangered;

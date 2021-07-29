@@ -1,0 +1,12 @@
+.container {
+    margin-right: 24px;
+    margin-left: 24px;
+}
+
+.SearchForm__input {
+    margin-right: 6px;
+    width: 260px;
+    padding: 6px 24px;
+    outline: orangered;
+    margin-bottom: 12px;
+}

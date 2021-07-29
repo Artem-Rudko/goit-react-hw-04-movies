@@ -15,4 +15,19 @@ const fetchMoviesByQuery = query => {
     );
 };
 
-export { fetchTrendingMovies, fetchMoviesByQuery };
+const fetchMoviesFromState = search => {
+    return axios.get(`${BASE_URL}/search/movie${search}&api_key=${API_KEY}`);
+};
+
+const fetchMovieById = movieId => {
+    return axios.get(
+        `${BASE_URL}/movie/${movieId}?api_key=${API_KEY}&language=en-US&append_to_response=reviews,credits`,
+    );
+};
+
+export {
+    fetchTrendingMovies,
+    fetchMoviesByQuery,
+    fetchMoviesFromState,
+    fetchMovieById,
+};

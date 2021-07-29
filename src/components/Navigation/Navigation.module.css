@@ -1,0 +1,11 @@
+.navigation {
+    display: flex;
+}
+
+.NavLink {
+    font-size: 18px;
+    text-decoration: none;
+    color: gray;
+    margin-right: 12px;
+    text-decoration: none;
+}

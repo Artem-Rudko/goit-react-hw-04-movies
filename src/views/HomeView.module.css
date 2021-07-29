@@ -1,0 +1,9 @@
+.container {
+    margin-left: 24px;
+    margin-right: 24px;
+}
+
+.container__title {
+    margin-bottom: 12px;
+    color: orangered;
+}
