@@ -1,6 +1,7 @@
 import { Component } from 'react';
-// import { Link } from 'react-router-dom';
+// import { Route } from 'react-router-dom';
 import axios from 'axios';
+import MoviesList from '../components/MoviesList';
 
 class MoviesView extends Component {
     state = {
@@ -8,15 +9,35 @@ class MoviesView extends Component {
         moviesList: [],
     };
 
-    formSubmitHandler = e => {
-        e.preventDefault();
-        // this.props.onSubmit(this.state);
-        console.log('submit', this.state.query);
-
-        // const { movieId } = this.props.match.params;
+    componentDidMount() {
         const API_KEY = 'bf0957773382584d05a14ff44449aecb';
         const BASE_URL = 'https://api.themoviedb.org/3';
-        // const BASE_IMG_URL = 'https://image.tmdb.org/t/p/w500';
+
+        if (this.props.location.search) {
+            axios
+                .get(
+                    `${BASE_URL}/search/movie${this.props.location.search}&api_key=${API_KEY}`,
+                )
+                .then(response => {
+                    this.setState({ moviesList: response.data.results });
+                    console.log('state after get', this.state);
+                    localStorage.setItem(
+                        'moviesWasFound',
+                        JSON.stringify(this.state.moviesList),
+                    );
+                })
+                .catch(error => this.setState({ error: error }))
+                .finally(this.setState({ query: '' }));
+        }
+    }
+
+    formSubmitHandler = e => {
+        e.preventDefault();
+        console.log('submitHandler', this.state.query);
+
+        const API_KEY = 'bf0957773382584d05a14ff44449aecb';
+        const BASE_URL = 'https://api.themoviedb.org/3';
+        this.onQueryChange(this.state.query);
 
         axios
             .get(
@@ -24,16 +45,26 @@ class MoviesView extends Component {
             )
             .then(response => {
                 this.setState({ moviesList: response.data.results });
+                console.log('state after get', this.state);
+                localStorage.setItem(
+                    'moviesWasFound',
+                    JSON.stringify(this.state.moviesList),
+                );
             })
             .catch(error => this.setState({ error: error }))
             .finally(this.setState({ query: '' }));
-        // this.setState({ query: response })
-        console.log(this.state.movieList);
+    };
+
+    onQueryChange = query => {
+        this.props.history.push({
+            pathname: this.props.location.pathname,
+            search: `?query=${query}`,
+        });
     };
 
     queryHandler = e => {
         this.setState({ query: e.target.value });
-        console.log('input', this.state.query);
+        console.log('input', this.state);
     };
 
     render() {
@@ -55,6 +86,13 @@ class MoviesView extends Component {
                     </button>
                     {/* </Link> */}
                 </form>
+                {/*                <Route
+                    path={`${this.props.match.path}?query=`}
+                    render={props => (<MoviesList {...props} moviesList={this.state.moviesList}/>)}
+                    /> */}
+                {this.state.moviesList && (
+                    <MoviesList moviesList={this.state.moviesList} />
+                )}
             </div>
         );
     }

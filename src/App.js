@@ -1,8 +1,10 @@
 // import { Component } from 'react';
-import { Route, NavLink, Switch, Redirect } from 'react-router-dom';
+import { Route, Switch, Redirect } from 'react-router-dom';
 import HomeView from './views/HomeView';
 import MoviesView from './views/MoviesView';
 import MovieDetailsPage from './views/MovieDetailsView';
+import routes from './routes';
+import AppBar from './components/AppBar/AppBar';
 // import axios from 'axios';
 // import Loader from 'react-loader-spinner';
 // import 'react-loader-spinner/dist/loader/css/react-spinner-loader.css';
@@ -14,32 +16,12 @@ import './styles.css';
 
 const App = () => (
     <>
-        <ul>
-            <li>
-                <NavLink
-                    exact
-                    to="/"
-                    className="NavLink"
-                    activeClassName="NavLink--active"
-                >
-                    Home
-                </NavLink>
-            </li>
-            <li>
-                <NavLink
-                    to="/movies"
-                    className="NavLink"
-                    activeClassName="NavLink--active"
-                >
-                    Movies
-                </NavLink>
-            </li>
-        </ul>
+        <AppBar />
         <Switch>
-            <Route exact path="/" component={HomeView} />
-            <Route path="/movies/:movieId" component={MovieDetailsPage} />
-            <Route path="/movies" component={MoviesView} />
-            <Redirect to="/" />
+            <Route exact path={routes.home} component={HomeView} />
+            <Route path={routes.movieDetails} component={MovieDetailsPage} />
+            <Route path={routes.movies} component={MoviesView} />
+            <Redirect to={routes.home} />
         </Switch>
     </>
 );

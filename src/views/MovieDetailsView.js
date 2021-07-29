@@ -3,6 +3,7 @@ import { Link, Route } from 'react-router-dom';
 import axios from 'axios';
 import Cast from '../components/Cast';
 import Reviews from '../components/Reviews';
+import routes from '../routes';
 
 class MovieDetailsPage extends Component {
     state = {
@@ -30,6 +31,12 @@ class MovieDetailsPage extends Component {
         this.setState({ ...response.data });
     }
 
+    handleGoBack = () => {
+        console.log('go back');
+        const { location, history } = this.props;
+        history.push(location?.state?.from || routes.home);
+    };
+
     render() {
         const {
             poster_path,
@@ -43,18 +50,11 @@ class MovieDetailsPage extends Component {
 
         const BASE_IMG_URL = 'https://image.tmdb.org/t/p/w500';
         console.log('state', this.state);
-        const { location, history } = this.props;
 
         return (
             <>
                 <div>
-                    <button
-                        type="button"
-                        onClick={() => {
-                            history.push(location.state.from);
-                        }}
-                    >
-                        {' '}
+                    <button type="button" onClick={this.handleGoBack}>
                         Go back
                     </button>
                     <img
