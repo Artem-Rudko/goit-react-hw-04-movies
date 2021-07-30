@@ -39,7 +39,7 @@ class MoviesView extends Component {
         fetchMoviesByQuery(this.state.query)
             .then(response => {
                 this.setState({ moviesList: response.data.results });
-                console.log('state after get', this.state);
+                // console.log('state after get', this.state);
                 localStorage.setItem(
                     'moviesWasFound',
                     JSON.stringify(this.state.moviesList),
@@ -58,13 +58,16 @@ class MoviesView extends Component {
 
     queryHandler = e => {
         this.setState({ query: e.target.value });
-        console.log('input', this.state);
+        // console.log('input', this.state);
     };
 
     render() {
         return (
             <div className={styles.container}>
-                <form className="SearchForm" onSubmit={this.formSubmitHandler}>
+                <form
+                    className={styles.SearchForm}
+                    onSubmit={this.formSubmitHandler}
+                >
                     <input
                         className={styles.SearchForm__input}
                         type="text"

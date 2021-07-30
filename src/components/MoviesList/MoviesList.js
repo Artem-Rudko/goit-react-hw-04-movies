@@ -1,3 +1,4 @@
+import PropTypes from 'prop-types';
 import { Link, withRouter } from 'react-router-dom';
 
 const MoviesList = ({ moviesList, location }) => {
@@ -22,3 +23,7 @@ const MoviesList = ({ moviesList, location }) => {
 };
 
 export default withRouter(MoviesList);
+
+MoviesList.propTypes = {
+    moviesList: PropTypes.array.isRequired,
+};

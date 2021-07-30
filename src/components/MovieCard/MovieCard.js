@@ -1,6 +1,14 @@
+import PropTypes from 'prop-types';
 import styles from './MovieCard.module.css';
 
 const MovieCard = ({ poster_path, title, vote_average, overview, genres }) => {
+    console.log(
+        'overview',
+        typeof overview,
+        'vote_average',
+        typeof vote_average,
+    );
+
     return (
         <div className={styles.movie__card}>
             <img
@@ -27,3 +35,11 @@ const MovieCard = ({ poster_path, title, vote_average, overview, genres }) => {
 };
 
 export default MovieCard;
+
+// MovieCard.propTypes = {
+//     poster_path: PropTypes.string.isRequired,
+//     title: PropTypes.string.isRequired,
+//     vote_average: PropTypes.number,
+//     overview: PropTypes.string,
+//     genres: PropTypes.array,
+// }
