@@ -1,4 +1,4 @@
-import PropTypes from 'prop-types';
+// import PropTypes from 'prop-types';
 import styles from './MovieCard.module.css';
 
 const MovieCard = ({ poster_path, title, vote_average, overview, genres }) => {
