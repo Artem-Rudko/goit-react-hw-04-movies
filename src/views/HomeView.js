@@ -18,7 +18,9 @@ class HomeView extends Component {
         return (
             <div className={styles.container}>
                 <h1 className={styles.container__title}>Tranding today</h1>
-                <MoviesList moviesList={this.state.moviesList} />
+                {this.state.moviesList && (
+                    <MoviesList moviesList={this.state.moviesList} />
+                )}
             </div>
         );
     }

@@ -51,13 +51,15 @@ class MovieDetailsPage extends Component {
                     >
                         Go back
                     </button>
-                    <MovieCard
-                        poster_path={poster_path}
-                        title={title}
-                        vote_average={vote_average}
-                        overview={overview}
-                        genres={genres}
-                    />
+                    {this.state.id && (
+                        <MovieCard
+                            poster_path={poster_path}
+                            title={title}
+                            vote_average={vote_average}
+                            overview={overview}
+                            genres={genres}
+                        />
+                    )}
                 </div>
                 <div>
                     <div className={styles.addInfo}>
