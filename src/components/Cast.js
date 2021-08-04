@@ -22,11 +22,13 @@ class Cast extends Component {
             <ul>
                 {this.state.cast.map(hero => (
                     <li key={hero.id}>
-                        <img
-                            src={`${BASE_IMG_URL}${hero.profile_path}`}
-                            // src={`https://image.tmdb.org/t/p/w200}${hero.profile_path}`}
-                            alt={hero.name}
-                        ></img>
+                        {hero.profile_path && (
+                            <img
+                                src={`${BASE_IMG_URL}${hero.profile_path}`}
+                                // src={`https://image.tmdb.org/t/p/w200}${hero.profile_path}`}
+                                alt={hero.name}
+                            ></img>
+                        )}
                         <p>{hero.name}</p>
                         <p>Character: {hero.character}</p>
                     </li>
@@ -46,5 +48,5 @@ Cast.propTypes = {
             profile_path: PropTypes.string,
             character: PropTypes.string.isRequired,
         }),
-    ),
+    ).isRequired,
 };

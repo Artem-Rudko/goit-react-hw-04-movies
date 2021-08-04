@@ -2,12 +2,12 @@ import PropTypes from 'prop-types';
 import styles from './MovieCard.module.css';
 
 const MovieCard = ({ poster_path, title, vote_average, overview, genres }) => {
-    console.log(
-        'overview',
-        typeof overview,
-        'vote_average',
-        typeof vote_average,
-    );
+    // console.log(
+    //     'overview',
+    //     typeof overview,
+    //     'vote_average',
+    //     typeof vote_average,
+    // );
 
     return (
         <div className={styles.movie__card}>
