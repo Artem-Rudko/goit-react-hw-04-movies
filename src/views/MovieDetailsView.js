@@ -9,14 +9,14 @@ import styles from './MovieDetailsView.module.css';
 
 class MovieDetailsPage extends Component {
     state = {
-        id: '',
+        id: null,
         poster_path: '',
         title: '',
-        vote_average: '',
-        overview: [],
+        vote_average: null,
+        overview: '',
         genres: [],
-        credits: [],
-        reviews: [],
+        credits: null,
+        reviews: null,
     };
 
     async componentDidMount() {

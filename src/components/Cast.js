@@ -39,10 +39,12 @@ class Cast extends Component {
 export default Cast;
 
 Cast.propTypes = {
-    cast: PropTypes.shape({
-        id: PropTypes.number.isRequired,
-        name: PropTypes.string.isRequired,
-        profile_path: PropTypes.string.isRequired,
-        character: PropTypes.string.isRequired,
-    }),
+    cast: PropTypes.arrayOf(
+        PropTypes.shape({
+            id: PropTypes.number.isRequired,
+            name: PropTypes.string.isRequired,
+            profile_path: PropTypes.string,
+            character: PropTypes.string.isRequired,
+        }),
+    ),
 };

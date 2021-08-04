@@ -1,4 +1,4 @@
-// import PropTypes from 'prop-types';
+import PropTypes from 'prop-types';
 import styles from './MovieCard.module.css';
 
 const MovieCard = ({ poster_path, title, vote_average, overview, genres }) => {
@@ -13,7 +13,7 @@ const MovieCard = ({ poster_path, title, vote_average, overview, genres }) => {
         <div className={styles.movie__card}>
             <img
                 src={`https://image.tmdb.org/t/p/w500${poster_path}`}
-                alt="#"
+                alt={title}
                 className={styles.movie__poster}
                 style={{ width: 260 }}
             ></img>
@@ -36,10 +36,10 @@ const MovieCard = ({ poster_path, title, vote_average, overview, genres }) => {
 
 export default MovieCard;
 
-// MovieCard.propTypes = {
-//     poster_path: PropTypes.string.isRequired,
-//     title: PropTypes.string.isRequired,
-//     vote_average: PropTypes.number,
-//     overview: PropTypes.string,
-//     genres: PropTypes.array,
-// }
+MovieCard.propTypes = {
+    poster_path: PropTypes.string.isRequired,
+    title: PropTypes.string.isRequired,
+    vote_average: PropTypes.number,
+    overview: PropTypes.string,
+    genres: PropTypes.array,
+};
