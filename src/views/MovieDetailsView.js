@@ -41,6 +41,8 @@ class MovieDetailsPage extends Component {
             credits,
         } = this.state;
 
+        const { location } = this.props;
+
         return (
             <div className={styles.container}>
                 <div>
@@ -66,12 +68,22 @@ class MovieDetailsPage extends Component {
                         <p>Additional information</p>
                         <ul>
                             <li>
-                                <Link to={`${this.props.match.url}/cast`}>
+                                <Link
+                                    to={{
+                                        pathname: `${this.props.match.url}/cast`,
+                                        state: { from: location.state.from },
+                                    }}
+                                >
                                     Cast
                                 </Link>
                             </li>
                             <li>
-                                <Link to={`${this.props.match.url}/reviews`}>
+                                <Link
+                                    to={{
+                                        pathname: `${this.props.match.url}/reviews`,
+                                        state: { from: location.state.from },
+                                    }}
+                                >
                                     Reviews
                                 </Link>
                             </li>

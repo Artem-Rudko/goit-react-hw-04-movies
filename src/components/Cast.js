@@ -7,12 +7,7 @@ class Cast extends Component {
     };
 
     componentDidMount() {
-        // console.log('cast', this.props.cast);
         this.setState({ cast: this.props.cast });
-    }
-
-    componentDidUpdate() {
-        // this.setState({ cast: this.props.cast})
     }
 
     render() {
@@ -25,7 +20,6 @@ class Cast extends Component {
                         {hero.profile_path && (
                             <img
                                 src={`${BASE_IMG_URL}${hero.profile_path}`}
-                                // src={`https://image.tmdb.org/t/p/w200}${hero.profile_path}`}
                                 alt={hero.name}
                             ></img>
                         )}

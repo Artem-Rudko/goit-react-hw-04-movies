@@ -9,10 +9,6 @@ class Reviews extends Component {
         this.setState({ reviews: this.props.reviews });
     }
 
-    componentDidUpdate() {
-        // this.setState({ cast: this.props.reviews})
-    }
-
     render() {
         return (
             <ul>
