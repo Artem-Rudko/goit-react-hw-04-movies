@@ -9,14 +9,14 @@ import styles from './MovieDetailsView.module.css';
 
 class MovieDetailsPage extends Component {
     state = {
-        id: null,
+        id: '',
         poster_path: '',
         title: '',
-        vote_average: null,
-        overview: '',
+        vote_average: '',
+        overview: [],
         genres: [],
-        credits: null,
-        reviews: null,
+        credits: [],
+        reviews: [],
     };
 
     async componentDidMount() {
@@ -40,8 +40,6 @@ class MovieDetailsPage extends Component {
             reviews,
             credits,
         } = this.state;
-
-        const { location } = this.props;
 
         return (
             <div className={styles.container}>
@@ -68,22 +66,12 @@ class MovieDetailsPage extends Component {
                         <p>Additional information</p>
                         <ul>
                             <li>
-                                <Link
-                                    to={{
-                                        pathname: `${this.props.match.url}/cast`,
-                                        state: { from: location.state.from },
-                                    }}
-                                >
+                                <Link to={`${this.props.match.url}/cast`}>
                                     Cast
                                 </Link>
                             </li>
                             <li>
-                                <Link
-                                    to={{
-                                        pathname: `${this.props.match.url}/reviews`,
-                                        state: { from: location.state.from },
-                                    }}
-                                >
+                                <Link to={`${this.props.match.url}/reviews`}>
                                     Reviews
                                 </Link>
                             </li>
