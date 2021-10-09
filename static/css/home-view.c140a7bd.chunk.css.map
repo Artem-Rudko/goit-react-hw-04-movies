@@ -1,0 +1,1 @@
+{"version":3,"sources":["webpack://src/views/HomeView.module.css"],"names":[],"mappings":"AAAA,2BACI,gBAAiB,CACjB,iBACJ,CAEA,kCACI,kBAAmB,CACnB,aACJ","file":"home-view.c140a7bd.chunk.css","sourcesContent":[".container {\r\n    margin-left: 24px;\r\n    margin-right: 24px;\r\n}\r\n\r\n.container__title {\r\n    margin-bottom: 12px;\r\n    color: orangered;\r\n}\r\n"]}
